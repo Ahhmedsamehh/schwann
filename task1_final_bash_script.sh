@@ -7,12 +7,12 @@ cd schwann
 echo "name,email,slack_handle,biostack,twitter_handle,hamming_distance" > output.csv
 for x in $(ls); 
  do 
-	if [[ $x == *.sh ]]; 
+	if [[ $x == *linux.sh ]]; 
 	then bash $x |tr '\n' ',' | awk '{ print $1,$2,$3,$4,$5,$6 '\n' }' >> output.csv ; 
 fi;
 	if [[ $x == *.cpp ]];
 	then g++ $x
-	  ./a.out | tr '\n' ','|tr '"' ''| tr '[1]' ''| awk '{ print $1,$2,$3,$4,$5,$6 '\n' }' >> output.csv ; 
+	  ./a.out | tr '\n' ','| awk '{ print $1,$2,$3,$4,$5,$6 '\n' }' >> output.csv ; 
 fi;
 	if [[ $x ==  *.py ]];
 	then python3 $x |tr '\n' ','| awk '{ print $1,$2,$3,$4,$5,$6 '\n' }' >> output.csv ; 
